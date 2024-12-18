@@ -203,8 +203,8 @@ ADMINS = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 # settings.py
-STATIC_URL_PREFIX = config('STATIC_URL_PREFIX')
-MEDIA_URL_PREFIX  = config('MEDIA_URL_PREFIX')
+STATIC_URL_PREFIX = "swalook_22"
+MEDIA_URL_PREFIX  = "swalook_22"
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
