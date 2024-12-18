@@ -21,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = "django-insecure-b4+v(klybt0y9aghbnn=4qc+qr!#&)w3j)z_%7xbu)$mgx*z&3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG',cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -179,13 +179,13 @@ USE_I18N = True
 USE_TZ = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST = 'mail.swalook.in'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL =  True
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+EMAIL_HOST_USER = 'info@swalook.in'
+EMAIL_HOST_PASSWORD = 'rf4TwJbh456#'
+DEFAULT_FROM_EMAIL = 'info@swalook.in'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'rs-mbi.serverhostgroup.com'  # e.g., mail.yourdomain.com
@@ -227,8 +227,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
-WP_INS_TOKEN = config('WP_INS_TOKEN')
-WP_INS_ID = config('WP_INS_ID')
+WP_INS_TOKEN = ""
+WP_INS_ID = ""
 WP_API_URL = "https://api.ultramsg.com/instance90232/"
 WKHTML2PDF_PATH = "/home/swalooki/api_swalook-main/wkhtmltopdf.exe"
 
