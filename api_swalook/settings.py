@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-b4+v(klybt0y9aghbnn=4qc+qr!#&)w3j)z_%7xbu)$mgx*z&3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["18.204.206.79"]
 
 
 # Application definition
@@ -46,8 +46,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     # 'silk'
+    'sslserver'
 
 ]
+# settings.py
+
 
 MIDDLEWARE = [
     # 'silk.middleware.SilkyMiddleware',
@@ -72,9 +75,20 @@ CACHES = {
     }
 }
 
-
+SECURE_SSL_REDIRECT = True
 CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'api_swalook.urls'
+# settings.py
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+# settings.py
+SECURE_REDIRECT = True
+
+# settings.py
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Apply to all subdomains
+SECURE_HSTS_PRELOAD = True  # Optionally preload this setting in browser databases
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
                'rest_framework.authentication.TokenAuthentication',
