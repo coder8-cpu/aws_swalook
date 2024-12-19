@@ -75,20 +75,20 @@ CACHES = {
     }
 }
 
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT = True
 CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'api_swalook.urls'
 # settings.py
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
 # settings.py
-SECURE_REDIRECT = True
+# SECURE_REDIRECT = True
 
 # settings.py
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_HSTS_SECONDS = 31536000  # 1 year
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Apply to all subdomains
-SECURE_HSTS_PRELOAD = True  # Optionally preload this setting in browser databases
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_HSTS_SECONDS = 31536000  # 1 year
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Apply to all subdomains
+# SECURE_HSTS_PRELOAD = True  # Optionally preload this setting in browser databases
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
                'rest_framework.authentication.TokenAuthentication',
