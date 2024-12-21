@@ -2539,8 +2539,12 @@ class GetCustomerBillAppDetails(APIView):
         if invoice_all.exists():
             customer_name = invoice_all[0].customer_name
             customer_email = invoice_all[0].email
-            customer_dob = invoice_all[0].vendor_customers_profile.d_o_b
-            customer_doa = invoice_all[0].vendor_customers_profile.d_o_a
+            try:
+                customer_dob = invoice_all[0].vendor_customers_profile.d_o_b
+                customer_doa = invoice_all[0].vendor_customers_profile.d_o_a
+            except Exception:
+                customer_dob = ""
+                customer_doa = ""
 
             # customer_points = invoice_all[0].vendor_customers_profile.loyality_profile.current_customer_points
         else:
