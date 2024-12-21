@@ -2512,18 +2512,25 @@ class GetCustomerBillAppDetails(APIView):
 
     def get(self, request):
         mobile_no = request.query_params.get('mobile_no')
+        branch_name = request.query_params.get('branch_name')
 
         if not mobile_no:
             return Response({
                 "status": False,
                 "message": "Mobile number is required."
             }, status=400)
+        if not branch_name:
+            return Response({
+                "status": False,
+                "message": "Branch_name is required."
+            }, status=400)
 
 
-        appointments_all = VendorAppointment.objects.filter(mobile_no=mobile_no, vendor_name=request.user)
+        appointments_all = VendorAppointment.objects.filter(mobile_no=mobile_no, vendor_name=request.user,vendor_branch_id=branch_name)
         # invoice_all = VendorInvoice.objects.filter(mobile_no=mobile_no, vendor_name=request.user)
         invoice_all = VendorInvoice.objects.filter(
-            mobile_no=mobile_no, vendor_name=request.user
+            mobile_no=mobile_no, vendor_name=request.user,vendor_branch_id=branch_name
+            
         ).select_related(
             'vendor_customers_profile__loyality_profile'
         )
@@ -2531,6 +2538,8 @@ class GetCustomerBillAppDetails(APIView):
         if invoice_all.exists():
             customer_name = invoice_all[0].customer_name
             customer_email = invoice_all[0].email
+            customer_dob = invoice_all[0].vendor_customers_profile.d_o_b
+            customer_doa = invoice_all[0].vendor_customers_profile.d_o_a
 
             # customer_points = invoice_all[0].vendor_customers_profile.loyality_profile.current_customer_points
         else:
@@ -2557,6 +2566,8 @@ class GetCustomerBillAppDetails(APIView):
             "customer_name": customer_name,
             "customer_mobile_no": mobile_no,
             "customer_email": customer_email,
+            "d_o_b": customer_dob,
+            "d_o_a": customer_doa,
             # "customer_loyality_points": customer_points,  # Uncomment if needed
             "total_billing_amount": total_billing_amount,
         })
