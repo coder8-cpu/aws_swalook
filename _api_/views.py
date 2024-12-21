@@ -2407,7 +2407,7 @@ class service_analysis(APIView):
         branch_name = request.query_params.get('branch_name')
 
 
-        weekly_invoices = VendorInvoice.objects.filter(vendor_name=request.user,vendor_branch_id=branch_name,week=selected_week,month=selected_month, year=selected_year)
+        weekly_invoices = VendorInvoice.objects.filter(vendor_name=request.user,week=selected_week,month=selected_month, year=selected_year)
 
 
         total_amount = 0
