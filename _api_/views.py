@@ -2567,8 +2567,8 @@ class GetCustomerBillAppDetails(APIView):
             "customer_name": customer_name,
             "customer_mobile_no": mobile_no,
             "customer_email": customer_email,
-            "d_o_b": customer_dob,
-            "d_o_a": customer_doa,
+            "customer_dob": customer_dob,
+            "customer_doa": customer_doa,
             # "customer_loyality_points": customer_points,  # Uncomment if needed
             "total_billing_amount": total_billing_amount,
         })
