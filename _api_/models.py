@@ -94,7 +94,7 @@ class VendorCustomers(models.Model):
     name = models.CharField(max_length=30,blank=True,null=True)
     mobile_no = models.CharField(max_length=30,blank=True,null=True)
     d_o_b = models.CharField(max_length=30,blank=True,null=True)
-    d_a_n = models.CharField(max_length=30,blank=True,null=True)
+    d_o_a = models.CharField(max_length=30,blank=True,null=True)
     
 
     email = models.CharField(max_length=30,blank=True)
