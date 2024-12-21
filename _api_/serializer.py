@@ -354,7 +354,7 @@ class billing_serializer(serializers.ModelSerializer):
 
 
             month= date.month,
-            week= self.get_week_number(mon.day),
+            week= self.get_week_number(date.day),
             year= date.year,
 
         )
