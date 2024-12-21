@@ -91,11 +91,14 @@ class VendorCustomers(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     loyality_profile = models.ForeignKey(VendorCustomerLoyalityPoints, on_delete=models.SET_NULL, null=True)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    name = models.CharField(max_length=30)
-    mobile_no = models.CharField(max_length=30)
+    name = models.CharField(max_length=30,blank=True,null=True)
+    mobile_no = models.CharField(max_length=30,blank=True,null=True)
+    d_o_b = models.CharField(max_length=30,blank=True,null=True)
+    d_a_n = models.CharField(max_length=30,blank=True,null=True)
+    
 
-    email = models.CharField(max_length=30)
-    membership = models.CharField(max_length=30)
+    email = models.CharField(max_length=30,blank=True)
+    membership = models.CharField(max_length=30,blank=True,null=True)
 
     membership_type = models.ForeignKey(VendorLoyalityProgramTypes, on_delete=models.SET_NULL, null=True,)
     vendor_branch = models.ForeignKey(SalonBranch, on_delete=models.SET_NULL, null=True)
