@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-b4+v(klybt0y9aghbnn=4qc+qr!#&)w3j)z_%7xbu)$mgx*z&3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["api.swalookcrm.in"]
 
