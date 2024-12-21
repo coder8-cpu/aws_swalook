@@ -2260,7 +2260,8 @@ class Sales_Per_Customer(APIView):
         month = request.query_params.get('month')
         year = request.query_params.get('year')
         week = request.query_params.get('week')
-        billing_data_weekly_customer = VendorInvoice.objects.filter(vendor_name=request.user,year=year,month=month,week=week).values('vendor_customers_profile__mobile_no').annotate(weekly_total=Sum('grand_total')).order_by('vendor_customers_profile__mobile_no', 'week')
+        branch_name = request.query_params.get('branch_name')
+        billing_data_weekly_customer = VendorInvoice.objects.filter(vendor_name=request.user,vendor_branch_id=branch_name,year=year,month=month,week=week).values('vendor_customers_profile__mobile_no').annotate(weekly_total=Sum('grand_total')).order_by('vendor_customers_profile__mobile_no', 'week')
 
         return Response({
             "data":billing_data_weekly_customer,
@@ -2315,8 +2316,8 @@ class Sales_in_a_year(APIView):
     def get(self,request):
 
         year = request.query_params.get('year')
-
-        billing_data_monthly_year = VendorInvoice.objects.filter(vendor_name=request.user,year=year).values('month').annotate(monthly_total=Sum('grand_total')).order_by('month')
+        branch_name = request.query_params.get('branch_name')
+        billing_data_monthly_year = VendorInvoice.objects.filter(vendor_name=request.user,vendor_branch_id=branch_name,year=year).values('month').annotate(monthly_total=Sum('grand_total')).order_by('month')
 
         return Response({
             # "data":billing_data_weekly_customer,
@@ -2719,12 +2720,12 @@ class abc_123(APIView):
         }
 
 
-        user = User.objects.get(username="8876548923")
-        d = VendorService.objects.filter(user=user)
-        d.delete()
+        # user = User.objects.get(username="8876548923")
+        # d = VendorService.objects.filter(user=user)
+        # d.delete()
 
-        services = [VendorService(service=servi,service_duration="0",service_price=services_dict.get(servi),user=user) for servi in services_dict.keys() if services_dict.get(servi) ]
-        VendorService.objects.bulk_create(services)
+        # services = [VendorService(service=servi,service_duration="0",service_price=services_dict.get(servi),user=user) for servi in services_dict.keys() if services_dict.get(servi) ]
+        # VendorService.objects.bulk_create(services)
 
 
 
