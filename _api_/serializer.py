@@ -281,7 +281,7 @@ class billing_serializer(serializers.ModelSerializer):
 
         validated_data['vendor_branch_id'] = self.context.get('branch_id')
 
-        self.handle_loyalty_points(validated_data)
+        # self.handle_loyalty_points(validated_data)
         # self.update_staff_business_to_month(validated_data['service_by'],validated_data['grand_total'],validated_data['total_tax'])
 
         self.update_inventory(validated_data['json_data'])
