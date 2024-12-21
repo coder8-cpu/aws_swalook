@@ -163,7 +163,7 @@ class VendorInvoice(models.Model):
     vendor_customers_profile = models.ForeignKey(VendorCustomers, on_delete=models.SET_NULL, null=True)
 
     comment = models.CharField(max_length=255, blank=True)
-    mode_of_payment = models.CharField(default="Cash",max_length=255, blank=True,null=True)
+    mode_of_payment = models.CharField(max_length=255, blank=True,null=True)
     loyalty_points = models.DecimalField(blank=True, null=True, max_digits=6, decimal_places=2)
     loyalty_points_deducted = models.DecimalField(blank=True, null=True, max_digits=6, decimal_places=2)
 
